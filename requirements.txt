@@ -1,5 +1,0 @@
-flask
-flask-bootstrap
-pytsk3
-exifread
-fpdf
