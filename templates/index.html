@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Databases and Memory Dump</title>
+</head>
+<body>
+    <h1>Upload SQLite Databases and Memory Dump</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="sms_db">Upload SMS Database (mmssms.db):</label>
+        <input type="file" id="sms_db" name="sms_db" accept=".db"><br><br>
+
+        <label for="call_db">Upload Call Logs Database (contacts2.db):</label>
+        <input type="file" id="call_db" name="call_db" accept=".db"><br><br>
+
+        <label for="memory_dump">Upload Memory Dump (zip/tar):</label>
+        <input type="file" id="memory_dump" name="memory_dump" accept=".zip,.tar,.tar.gz"><br><br>
+
+        <button type="submit">Upload and Analyze</button>
+    </form>
+</body>
+</html>
