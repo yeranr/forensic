@@ -1,0 +1,105 @@
+<!-- pdf_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Report</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analysis Report</h1>
+
+    <!-- SMS Data Table -->
+    <h2>SMS Data</h2>
+    {% if sms %}
+    <table>
+        <tr>
+            <th>Address</th>
+            <th>Date</th>
+            <th>Message</th>
+        </tr>
+        {% for message in sms %}
+        <tr>
+            <td>{{ message['address'] }}</td>
+            <td>{{ message['date'] }}</td>
+            <td>{{ message['body'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No SMS data available.</p>
+    {% endif %}
+
+    <!-- Call Logs Table -->
+    <h2>Call Logs</h2>
+    {% if calls %}
+    <table>
+        <tr>
+            <th>Number</th>
+            <th>Date</th>
+            <th>Duration (seconds)</th>
+            <th>Type</th>
+        </tr>
+        {% for call in calls %}
+        <tr>
+            <td>{{ call['number'] }}</td>
+            <td>{{ call['date'] }}</td>
+            <td>{{ call['duration'] }}</td>
+            <td>{{ call['type'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No call logs available.</p>
+    {% endif %}
+
+    <!-- Images Table -->
+    <h2>Images</h2>
+    {% if images %}
+    <table>
+        <tr>
+            <th>File Path</th>
+            <th>Creation Date</th>
+        </tr>
+        {% for image in images %}
+        <tr>
+            <td>{{ image['path'] }}</td>
+            <td>{{ image['creation_date'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No images available.</p>
+    {% endif %}
+
+    <!-- Audio Files Table -->
+    <h2>Audio Files</h2>
+    {% if audio_paths %}
+    <table>
+        <tr>
+            <th>File Path</th>
+        </tr>
+        {% for audio in audio_paths %}
+        <tr>
+            <td>{{ audio }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No audio files available.</p>
+    {% endif %}
+</body>
+</html>
